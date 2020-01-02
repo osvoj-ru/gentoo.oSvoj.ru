@@ -1,7 +1,7 @@
 # gentoo.oSvoj.ru
 репозитарий для gentoo от оСвой.рф
 для подключения создайте файл:
-... /etc/portage/repos.conf/gentoo.osvoj.ru.conf
+### /etc/portage/repos.conf/gentoo.osvoj.ru.conf
 ```
 [gentoo-osvoj-ru]
 location = /var/git/repos/gentoo.osvoj.ru/
