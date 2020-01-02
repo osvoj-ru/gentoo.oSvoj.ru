@@ -17,7 +17,7 @@ EGIT_BRANCH="master" # todo: package the golang version
 
 
 LICENSE="Apache-2.0"
-SLOT="2.3"
+SLOT="3.0"
 KEYWORDS="amd64 ppc x86"
 IUSE="libressl selinux test"
 
