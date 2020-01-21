@@ -57,7 +57,7 @@ src_unpack() {
 	cd ${S}
     ./configure  --with-curl --erlang-md5
     einfo "${S}"
-	make -j1 release
+	emake -j1 release
 	einfo "end unpack ------------------------------------------------------------------------------------"
 }
 
@@ -94,23 +94,26 @@ src_test() {
 
 src_install() {
     einfo "start install ================================================================================="
-	mkdir -p "${D}"/opt
+	emake install
+
+	#mkdir -p "${D}"/opt
 	# mv "${S}/rel/couchdb/etc" "${D}/etc/couchdb"
-	mv "${S}/rel/couchdb" "${D}/opt/"
+	#mv "${S}/rel/couchdb" "${D}/opt/"
 	#dosym "../opt/couchdb/etc" "${D}/etc/couchdb"
 	#dosym ../../etc/couchdb /opt/couchdb/etc
 
 	keepdir /var/l{ib,og}/couchdb
-
+    keepdir /etc/couchdb
 	fowners couchdb:couchdb \
 		/var/lib/couchdb \
-		/var/log/couchdb
+		/var/log/couchdb \
+		/etc/couchdb
 
-	for f in "${D}"/opt/couchdb/etc/*.d; do
+	for f in /etc/couchdb/*.d; do
 		fowners root:couchdb "${f#${ED}}"
 		fperms 0750 "${f#${ED}}"
 	done
-	for f in "${D}"/opt/couchdb/etc/*.ini; do
+	for f in /etc/couchdb/*.ini; do
 		fowners root:couchdb "${f#${ED}}"
 		fperms 0440 "${f#${ED}}"
 	done
