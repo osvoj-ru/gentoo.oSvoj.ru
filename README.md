@@ -6,7 +6,7 @@
 [gentoo-osvoj-ru]
 location = /var/git/repos/gentoo.osvoj.ru/
 sync-type = git
-sync-uri = https://github.com/oSvojru/gentoo.oSvoj.ru.git
+sync-uri = https://github.com/osvoj-ru/gentoo.oSvoj.ru.git
 auto-sync = true
 priority = 9
 ```
